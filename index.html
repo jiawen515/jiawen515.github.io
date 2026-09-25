@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>邓嘉雯 - 产品策划作品集</title>
+    <style>
+        :root {
+            --primary-pink: #ffb6c1;
+            --accent-pink: #ff8da1;
+            --bg-grey: #f4f4f6;
+            --card-bg: #ffffff;
+            --text-dark: #2c2c2c;
+            --text-grey: #666666;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            background-color: var(--bg-grey);
+            color: var(--text-dark);
+            margin: 0;
+            padding: 30px 15px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 50px 40px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+        }
+
+        /* 头部 Banner */
+        .header {
+            text-align: center;
+            padding-bottom: 40px;
+            border-bottom: 2px dashed #eee;
+            margin-bottom: 40px;
+        }
+        .header h1 {
+            font-size: 2.8em;
+            margin: 0 0 10px 0;
+            letter-spacing: 2px;
+            color: #111;
+        }
+        .header .subtitle {
+            font-size: 1.1em;
+            color: var(--text-grey);
+        }
+
+        /* 模块标题与数字徽章 */
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin: 40px 0 25px 0;
+        }
+        .badge {
+            width: 46px;
+            height: 46px;
+            background: var(--primary-pink);
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25em;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        .section-title {
+            font-size: 1.7em;
+            font-weight: bold;
+            margin: 0;
+            color: #222;
+        }
+        .section-title span {
+            font-size: 0.65em;
+            color: #999;
+            font-weight: normal;
+            margin-left: 8px;
+            text-transform: uppercase;
+        }
+
+        /* 个人信息卡片（带头像双栏） */
+        .info-card {
+            background: #fafafa;
+            border-radius: 12px;
+            padding: 28px;
+            margin-bottom: 30px;
+            border: 1px solid #f0f0f0;
+            display: flex;
+            gap: 25px;
+            align-items: flex-start;
+        }
+        .info-content { flex: 1; }
+        .avatar-img {
+            width: 150px;
+            border-radius: 10px;
+            border: 1px solid #eee;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            object-fit: cover;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+        .info-item { font-size: 0.95em; }
+        .info-item strong { color: #111; }
+
+        /* 项目卡片（两栏排版） */
+        .project-card {
+            background: #ffffff;
+            border: 1px solid #eaeaea;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 35px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+        }
+        .project-header {
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #f2f2f2;
+        }
+        .project-title {
+            font-size: 1.35em;
+            font-weight: bold;
+            color: #111;
+        }
+        .project-meta {
+            font-size: 0.9em;
+            color: var(--accent-pink);
+            font-weight: 600;
+            margin-top: 4px;
+        }
+
+        .project-body {
+            display: flex;
+            gap: 30px;
+            align-items: flex-start;
+        }
+        .project-text { flex: 1.1; }
+        .project-gallery { 
+            flex: 0.9; 
+            display: flex; 
+            flex-direction: column; 
+            gap: 15px; 
+        }
+
+        /* 图片样式 */
+        .portfolio-img {
+            width: 100%;
+            border-radius: 8px;
+            border: 1px solid #eee;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            object-fit: cover;
+            background: #f9f9f9;
+            transition: transform 0.2s ease;
+        }
+        .portfolio-img:hover {
+            transform: scale(1.02);
+        }
+
+        ul { padding-left: 18px; margin: 8px 0; }
+        li { margin-bottom: 6px; }
+
+        .tag-title {
+            font-weight: bold;
+            color: #333;
+            margin-top: 14px;
+            display: block;
+        }
+
+        /* 尾部页面 */
+        .footer {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 40px;
+            border-top: 2px dashed #eee;
+        }
+        .footer h2 { font-size: 1.8em; margin-bottom: 15px; }
+        .footer p { color: #555; max-width: 700px; margin: 0 auto 10px auto; }
+        .thank-you {
+            font-size: 2.5em;
+            font-weight: 900;
+            color: var(--primary-pink);
+            letter-spacing: 4px;
+            margin-top: 25px;
+        }
+
+        /* 响应式适配移动端 */
+        @media (max-width: 768px) {
+            .project-body, .info-card { flex-direction: column; }
+            .container { padding: 25px 18px; }
+            .header h1 { font-size: 2em; }
+            .avatar-img { width: 100%; max-width: 180px; margin: 0 auto; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- 头部 -->
+        <div class="header">
+            <h1>产品策划作品集</h1>
+            <div class="subtitle">邓嘉雯 | 湖南大学·金融学硕士 | 求职意向：腾讯 产品策划（日常实习）</div>
+        </div>
+
+        <!-- 关于我 -->
+        <div class="section-header">
+            <div class="badge">01</div>
+            <h2 class="section-title">关于我 <span>About Me</span></h2>
+        </div>
+
+        <div class="info-card">
+            <div class="info-content">
+                <div class="info-grid">
+                    <div class="info-item"><strong>姓名：</strong>邓嘉雯</div>
+                    <div class="info-item"><strong>政治面貌：</strong>中共预备党员</div>
+                    <div class="info-item"><strong>电话：</strong>13699681664</div>
+                    <div class="info-item"><strong>邮箱：</strong>JIAWEN_DENG2025@163.COM</div>
+                </div>
+                
+                <span class="tag-title">🎓 教育背景</span>
+                <ul>
+                    <li><strong>湖南大学</strong> | 金融学硕士 (985) | 2025.01-至今<br><small>核心课程：金融人工智能100、保险经济学96、金融衍生工具96</small></li>
+                    <li><strong>西南大学</strong> | 金融学本科+应用心理学辅修 (211) | 2020.09-2025.06<br><small>绩点 3.88，专业排名 9/82；辅修绩点 3.66</small></li>
+                </ul>
+
+                <span class="tag-title">🛠️ 技能证书</span>
+                <ul>
+                    <li><strong>产品方法：</strong>用户访谈、问卷设计、用户画像、需求梳理、功能架构、竞品/可用性测试</li>
+                    <li><strong>AI产品：</strong>RAG、TEXT2SQL/TEXT2API、多智能体、提示词工程、双模模型的产品化理解</li>
+                    <li><strong>工具与证书：</strong>PYTHON、STATA、SPSS、LATEX、OFFICE | CET-4/6、证券从业资格证</li>
+                </ul>
+            </div>
+            <!-- 个人照片 -->
+            <img class="avatar-img" src="images/avatar.jpg" alt="邓嘉雯照片" onerror="this.style.display='none'">
+        </div>
+
+        <!-- 项目经历 -->
+        <div class="section-header">
+            <div class="badge">02</div>
+            <h2 class="section-title">产品项目经历 <span>Product Projects</span></h2>
+        </div>
+
+        <!-- 项目 01 -->
+        <div class="project-card">
+            <div class="project-header">
+                <div class="project-title">项目01 数智“湘”融——一体化产融优培分析平台</div>
+                <div class="project-meta">2025.07-2025.11 | 负责人 | 湖南省研究生金融科技创新大赛省级二等奖</div>
+            </div>
+            <div class="project-body">
+                <div class="project-text">
+                    <span class="tag-title">📌 背景与痛点</span>
+                    <p>产业金融协同中存在数据孤岛、信息滞后、分析能力不足；政府与金融机构难以实时掌握产业链运行状态并快速形成研判。</p>
+                    
+                    <span class="tag-title">💡 我的工作（产品策划）</span>
+                    <ul>
+                        <li><strong>监测平台：</strong>策划“监、查、研”一体化平台，绘制产业链地图，支持穿透查询与用水量/用电量等特色指标研判；</li>
+                        <li><strong>AI助手：</strong>设计助手“小果”，经 Text2SQL/Text2API/Text2Python 输出描述—诊断—处方三层分析，约10分钟生成研究报告；</li>
+                        <li><strong>技术与落地：</strong>采用RAG、多智能体协作与分层记忆；方案在湘潭“数据湘潭，聚焦民生”项目落地。</li>
+                    </ul>
+
+                    <span class="tag-title">🔄 项目复盘</span>
+                    <p>B端平台要同时服务“看的人、查的人、研的人”，一套数据、多角色视图是关键；AI助手把分析门槛降到一句话。</p>
+                </div>
+                <div class="project-gallery">
+                    <img class="portfolio-img" src="images/project1-1.jpg" alt="产融优培一体化平台截图" onerror="this.style.display='none'">
+                    <img class="portfolio-img" src="images/project1-2.jpg" alt="小果AI助手三层分析架构图" onerror="this.style.display='none'">
+                </div>
+            </div>
+        </div>
+
+        <!-- 项目 02 -->
+        <div class="project-card">
+            <div class="project-header">
+                <div class="project-title">项目02 拼在指尖的情绪“豆”——拼豆DIY消费行为与市场潜力调研</div>
+                <div class="project-meta">2025.09-2026.04 | 负责人 | 全国大学生市场调查与分析大赛研究生组全国一等奖</div>
+            </div>
+            <div class="project-body">
+                <div class="project-text">
+                    <span class="tag-title">📌 背景与痛点</span>
+                    <p>2025年拼豆电商销售2.91亿元、搜索量同比+500%，小红书话题82亿浏览；数字疲劳催生线下手作“触觉逃离”，但用户是谁、为何购买、溢价几何、市场多大尚不清楚。</p>
+                    
+                    <span class="tag-title">💡 我的工作（产品策划）</span>
+                    <ul>
+                        <li><strong>研究设计：</strong>搭建“评论挖掘+分层PPS抽样问卷”体系，预调查126份、正式发放1093份、有效1001份(84.7%)；</li>
+                        <li><strong>用户建模：</strong>K-means划分三类人群，SOR+SEM实证数字疲劳(0.407)→控制感(0.254)→情绪补偿(0.129)→购买意愿；</li>
+                        <li><strong>商业测算：</strong>PSM三场景定价、TAM-SAM-SOM市场测算，输出产品/场景/品牌/生态“四力”策略。</li>
+                    </ul>
+
+                    <span class="tag-title">🔄 项目复盘</span>
+                    <p>拼豆消费本质是“数字疲劳下通过专注手作夺回控制感”；“用户分层→场景溢价→精准定价”迁移到互联网付费设计。</p>
+                </div>
+                <div class="project-gallery">
+                    <img class="portfolio-img" src="images/project2-1.jpg" alt="SOR模型与情绪补偿" onerror="this.style.display='none'">
+                    <img class="portfolio-img" src="images/project2-2.jpg" alt="需求词云与分析" onerror="this.style.display='none'">
+                    <img class="portfolio-img" src="images/project2-3.jpg" alt="市场潜力测算" onerror="this.style.display='none'">
+                </div>
+            </div>
+        </div>
+
+        <!-- 项目 03 -->
+        <div class="project-card">
+            <div class="project-header">
+                <div class="project-title">项目03 财枢智擎——基于 LLM 的账务智能体</div>
+                <div class="project-meta">2025.07-2025.12 | 负责人 | 全国研究生金融科技创新大赛全国二等奖</div>
+            </div>
+            <div class="project-body">
+                <div class="project-text">
+                    <span class="tag-title">📌 背景与痛点</span>
+                    <p>非财会新员工难掌握科目与借贷方向（入门难）；账务数据分散多系统（检索慢）；总分不平需逐笔追溯人工定位根源（排障久）。</p>
+                    
+                    <span class="tag-title">💡 我的工作（产品策划）</span>
+                    <ul>
+                        <li><strong>场景设计：</strong>面向新员工、会计、管理者三类用户，策划术语问答、多层检索、异常定位三大场景与六大功能模块；</li>
+                        <li><strong>交互设计：</strong>设计多轮对话（保留近10轮、缺要素主动追问）与思维链可视化，增强可解释性；</li>
+                        <li><strong>AI方案：</strong>设计“云端DeepSeek+本地微调”双模LLM与“规则+LLM”混合意图识别，并制定25轮混合场景测试方案。</li>
+                    </ul>
+
+                    <span class="tag-title">🔄 项目复盘</span>
+                    <p>金融AI的信任公式=可解释+可溯源+关键规则校验；“规则+大模型”混合架构比纯大模型更适合高合规场景。</p>
+                </div>
+                <div class="project-gallery">
+                    <img class="portfolio-img" src="images/project3-1.jpg" alt="SMART架构图与产品界面" onerror="this.style.display='none'">
+                    <img class="portfolio-img" src="images/project3-2.jpg" alt="多轮对话与异常定位" onerror="this.style.display='none'">
+                </div>
+            </div>
+        </div>
+
+        <!-- 项目 04 -->
+        <div class="project-card">
+            <div class="project-header">
+                <div class="project-title">项目04 智贯阡陌——乡镇产业多层级数据联动智能分析平台</div>
+                <div class="project-meta">2026.01-2026.05 | 负责人 | “挑战杯”省铜奖</div>
+            </div>
+            <div class="project-body">
+                <div class="project-text">
+                    <span class="tag-title">📌 背景与痛点</span>
+                    <p>乡镇人口、财税、企业、资源数据分散多部门（找数据难）；国家至县多级政策海量（匹配难）；产业规划与招商长期依赖个人经验（缺数据工具）。</p>
+                    
+                    <span class="tag-title">💡 我的工作（产品策划）</span>
+                    <ul>
+                        <li><strong>用户拆解：</strong>梳理县、乡、村三级用户诉求，提炼“数据查询→政策理解→产业分析→项目推进→材料输出”决策旅程；</li>
+                        <li><strong>功能策划：</strong>设计数据大屏、政策检索、产业研判、实施与退出、公文写作五大模块，覆盖决策全流程；</li>
+                        <li><strong>试点落地：</strong>参与隆回县虎形山瑶族乡试点，完成数据接入、村庄画像与产业研判，识别富硒茶叶为高潜力方向。</li>
+                    </ul>
+
+                    <span class="tag-title">🔄 项目复盘</span>
+                    <p>政务产品的核心是嵌入真实工作流；基层用户数字化能力参差，高频刚需场景（申报、汇报）是激活关键；AI输出必须可溯源、可解释。</p>
+                </div>
+                <div class="project-gallery">
+                    <img class="portfolio-img" src="images/project4-1.jpg" alt="数据大屏与村庄画像" onerror="this.style.display='none'">
+                    <img class="portfolio-img" src="images/project4-2.png" alt="多层级数据联动流程" onerror="this.style.display='none'">
+                </div>
+            </div>
+        </div>
+
+        <!-- 结尾 -->
+        <div class="footer">
+            <h2>Why Product · Why Tencent</h2>
+            <p>应用心理学理解“人为什么这样做”，金融学训练“如何理性决策”；既懂用户、也懂商业。</p>
+            <p>“用户为本，科技向善”，期待在腾讯丰富的 C端、B端 与 AI 场景中，把对 AI 产品的积累转化为真实的用户价值。</p>
+            <div class="thank-you">THANK YOU</div>
+        </div>
+
+    </div>
+
+</body>
+</html>
